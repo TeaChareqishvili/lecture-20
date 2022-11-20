@@ -13,6 +13,7 @@ const modalForm = document.querySelector('#modal');
 const modalButton = document.querySelector('.form-btn');
 const regForm = document.querySelector('#reg');
 
+const deleteBtn = document.querySelectorAll('.delete');
 
 // cvladebi inputebis 
 
@@ -41,7 +42,7 @@ function renderUsers(userArray){
             <td class="table-data">${user.gender}</td>
             <td class="table-data flex">
                <button class="user-btn">Edit</button>
-               <button class="user-btn">Delete</button>
+               <button class="user-btn delete">Delete</button>
             </td>
          </tr>
       `
@@ -104,6 +105,35 @@ function getNewUser(formInfo){
 getAllUsers();
 
 
+//  const deleteSomeUser = {
+//    deleteBtn.forEach((btn) => {
+//       btn.addEventListener("click", () => {
+        
+//            btn.closest(".table-content").remove();
+//       });
+//     });
+//  }
+
+//  deleteUser()
+ 
+
+
+function deleteUser(id) {
+   fetch('https://borjomi.loremipsum.ge/api/delete-user/${id}', {
+			method: "delete",
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+			
+				getAllUsers(); 
+				
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
+
 
 regForm.addEventListener("submit", (e)=>{
    e.preventDefault();
@@ -128,4 +158,6 @@ regForm.addEventListener("submit", (e)=>{
     }
   
     getNewUser(newUser);
+    regForm.reset();
+    
 } )
