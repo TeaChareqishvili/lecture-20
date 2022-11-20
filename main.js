@@ -11,6 +11,18 @@ const newUserButton = document.querySelector('.new-user');
 const userSection = document.querySelector('#section-user');
 const modalForm = document.querySelector('#modal');
 const modalButton = document.querySelector('.form-btn');
+const regForm = document.querySelector('#reg');
+
+
+// cvladebi inputebis 
+
+const firstName = document.querySelector('#first_name');
+const lastName = document.querySelector('#last_name');
+const UserPhone = document.querySelector('#Phone');
+const idNumber = document.querySelector('#id_number');
+const email = document.querySelector('#email');
+const zipCode = document.querySelector('#zip-code');
+const gender = document.querySelector('#gender'); 
 
 
 // userebis gadatana html-shi
@@ -34,7 +46,7 @@ function renderUsers(userArray){
          </tr>
       `
 	});
-   // console.log(renderedUsers)
+ 
    tableDiv.innerHTML=renderedUsers.join("")
 }
 
@@ -46,11 +58,26 @@ function getAllUsers(){
      })
      .then((data) =>{
        const users = data.users;
-      //   console.log(users)
+     
         renderUsers(users);
      })  
      .catch((error) => {
       console.log(error);
+   });
+}
+// serverze igzavneba axali useri
+function getNewUser(formInfo){
+   fetch("https://borjomi.loremipsum.ge/api/register" ,{
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+		body: JSON.stringify(formInfo),
+   })
+   .then((res) => res.json())
+   .then((data) => {
+
+   })
+   .catch((err) => {
+      // console.log(err);
    });
 }
 
@@ -73,6 +100,32 @@ function getAllUsers(){
 
 
 
+
 getAllUsers();
 
 
+
+regForm.addEventListener("submit", (e)=>{
+   e.preventDefault();
+   
+    const userNameValue = firstName.value;
+    const userLastNameValue = lastName.value;
+    const userPhoneValue =  UserPhone.value;
+    const userIdValue = idNumber.value;
+    const userEmailValue =  email.value; 
+    const usercodeValue = zipCode.value;
+    const userGenderValue =  gender.value;
+
+ 
+    const newUser = {
+      first_name:userNameValue,
+		last_name: userLastNameValue,
+		phone: userPhoneValue,
+		id_number:userIdValue,
+		email: userEmailValue,
+		gender: userGenderValue,
+		zip_code:  usercodeValue,
+    }
+  
+    getNewUser(newUser);
+} )
