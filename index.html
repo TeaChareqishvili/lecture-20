@@ -8,7 +8,7 @@
     <title>lecture 20 - User Info</title>
 </head>
 <body>
-    <section class="user-section">
+    <section class="user-section" id="section-user">
      
         <table class="table">
             <tr class="table-row">
@@ -24,11 +24,53 @@
              </tr>
              <tbody class="table-content"></tbody>
         </table>
-       
-       
       
    </section>     
 
+     
+          <div class="new-user-btn">
+             <button class="new-user">New User</button>
+          </div>
+
+          <div  id="modal" class="modal-form">
+            <div class="form-head">
+                <button class="form-btn">X</button>
+            </div>
+             <form class="form" id="reg" action="#" method="#">
+               <div class="input-field">
+                 <label for="username">Enter User Name</label>
+                 <input type="text" id="username" placeholder="Enter Name" required>
+               </div>
+               <div class="input-field">
+                <label for="usersurname">Enter User Surname</label>
+                <input type="text" id="usersurname" placeholder="Enter User Surname" required>
+              </div>
+              <div class="input-field">
+                <label for="usernumber">Enter Phone Number</label>
+                <input type="number" id="usernumber" placeholder="Enter number" required>
+              </div>
+              <div class="input-field">
+                <label for="personalid">Enter Personal Id</label>
+                <input type="number" id="personalid" placeholder="Enter Id" required>
+              </div>
+              <div class="input-field">
+                <label for="email">Enter Email</label>
+                <input type="email" id="email" placeholder="Enter email" required>
+              </div>
+              <div class="input-field">
+                <label for="code">Enter Zip Code</label>
+                <input type="number" id="code" placeholder="Enter Zip Code" required>
+              </div>
+              <div class="input-field">
+                <label for="gender">Enter Gender</label>
+                <input type="text" id="gender" placeholder="Enter Gender" required>
+              </div>
+              <div class="submit-div">
+                 <button type="submit" class="submit">Submit</button>
+              </div>
+             </form>
+          </div>
+      
 
 
     <script src="main.js"></script>

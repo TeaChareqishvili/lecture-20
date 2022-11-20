@@ -15,18 +15,27 @@ body{
     transform: translate(-50%, -50%);
      border-top:solid 2px rgb(19, 19, 82);
      border-right:solid 2px rgb(19, 19, 82);
+     /* display:none; */
+     /* max-width:1440px;
+     width:60%;
+     margin:auto; */
    
 }
 
-
+.hide{
+    display:none;
+}
 
  .table-header, .table-data{
-     padding:20px;
+     padding:10px;
      border-left:solid 2px  rgb(19, 19, 82);
      border-bottom:solid 2px  rgb(19, 19, 82);
     
 }
-
+.flex{
+    display:flex;
+    justify-content:center;
+}
 .table-header{
     background-color:DarkSeaGreen;
     color:black;
@@ -35,8 +44,99 @@ body{
 }
 .table-data{
     background-color:DarkSalmon;
-   
     color:black;
     font-family:Verdana, Tahoma, sans-serif;
     font-weight:900;
+}
+
+.user-btn{
+    margin-left:1rem;
+    margin-right:1rem;
+    width:4rem;
+    height:2rem;
+    cursor: pointer;
+    background-color:DarkSeaGreen;
+    color:black;
+    font-family:Verdana, Tahoma, sans-serif;
+}
+
+.new-user-btn{
+   display:flex;
+   justify-content: center;
+   margin:20px 0;
+  
+}
+.new-user{
+    background-color: DarkSlateGrey;
+    width:150px; 
+    height:50px;
+    color:beige;
+    cursor: pointer;
+   
+}
+
+.appear{
+    display:block;
+    max-width:1440px;
+    width:60%;
+    margin:auto;
+}
+.modal-form{
+    max-width:1440px;
+    width:60%;
+    margin:auto;
+    display:none;
+}
+
+.form-head{
+    background-color:brown;
+    padding:10px 20px; 
+}
+.form-btn{
+    padding:10px;
+    cursor: pointer;
+    background-color:DarkSlateGrey;
+    font-weight:bold;
+    color:beige;
+}
+.input-field{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+}
+.form{
+    background-color:rgb(138, 182, 138, 0.6);
+    border:2px solid DarkSlateGrey;
+    margin-bottom:20px;
+}
+label{
+    margin-right:2rem;
+    font-family:Verdana, Tahoma, sans-serif;
+    font-size:1rem;
+    font-weight:bold;
+}
+input{
+    padding:5px 10px;
+    outline:none;
+    border-color:DarkSlateGrey;
+    font-family:Verdana, Tahoma, sans-serif;
+    
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.submit-div{
+    display:flex;
+    justify-content: center;
+    margin:20px 0;
+}
+.submit{
+    background-color: DarkSlateGrey;
+    padding:10px 20px;
+    cursor:pointer;
+    color:beige;
 }

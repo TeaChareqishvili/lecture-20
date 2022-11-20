@@ -7,6 +7,13 @@ deleteUserUrl = "https://borjomi.loremipsum.ge/api/delete-user/1"; //id, method 
 
 const tableDiv = document.querySelector('.table-content');
 
+const newUserButton = document.querySelector('.new-user');
+const userSection = document.querySelector('#section-user');
+const modalForm = document.querySelector('#modal');
+const modalButton = document.querySelector('.form-btn');
+
+
+// userebis gadatana html-shi
 function renderUsers(userArray){
    console.log(userArray, 'render users')
    const renderedUsers = userArray.map((user) => {
@@ -15,13 +22,14 @@ function renderUsers(userArray){
             <td class="table-data">${user.id}</td>
             <td class="table-data">${user.first_name}</td>
             <td class="table-data">${user.last_name}</td>
-            <td class="table-data">${user.gender}</td>
             <td class="table-data">${user.email}</td>
             <td class="table-data">${user.id_number}</td>
             <td class="table-data">${user.phone}</td>
             <td class="table-data">${user.zip_code}</td>
-            <td class="table-data">
-               <button>add</button>
+            <td class="table-data">${user.gender}</td>
+            <td class="table-data flex">
+               <button class="user-btn">Edit</button>
+               <button class="user-btn">Delete</button>
             </td>
          </tr>
       `
@@ -45,6 +53,24 @@ function getAllUsers(){
       console.log(error);
    });
 }
+
+
+// eventebi gilakebze
+
+   newUserButton.addEventListener('click', ()=>{
+      userSection.classList.add('hide');
+      modalForm.classList.remove('modal-form');
+       modalForm.classList.add('appear');
+     
+   })
+
+   modalButton.addEventListener('click', ()=>{
+      modalForm.classList.remove('appear');
+      modalForm.classList.add('modal-form');
+      userSection.classList.remove('hide');
+   })
+
+
 
 
 getAllUsers();
